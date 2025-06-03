@@ -24,7 +24,7 @@ const Itinerary = ({ places, setPlaces }) => {
             {places.map((place, index) => (
               <Draggable
                 key={place.id}
-                draggableId={String(place.id)} // ✅ force string
+                draggableId={String(place.id)} 
                 index={index}
               >
                 {(provided) => (

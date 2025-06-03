@@ -1,6 +1,6 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
-import { HiOutlineLocationMarker, HiOutlineLink } from "react-icons/hi";
+import { HiOutlineLocationMarker, HiOutlineLink, HiOutlineTrash, HiOutlinePencil } from "react-icons/hi";
 
 const ActivityCard = ({ place, index }) => {
   return (
@@ -14,17 +14,24 @@ const ActivityCard = ({ place, index }) => {
         className="w-20 h-20 rounded object-cover mr-4"
       />
       <div className="flex-1">
+       <div className="flex  justify-between ml-3 text-gray-500 text-xl">
         <h3 className="font-semibold text-lg">{place.title}</h3>
+       <div className="flex gap-4">
+        <HiOutlineLocationMarker />
+        <HiOutlineLink />
+        <HiOutlineTrash/>
+        </div>
+      </div>
         <div className="flex items-center text-sm text-gray-600 mt-1">
           <FaStar className="text-yellow-400 mr-1" />
           {place.rating} <span className="ml-1">({place.reviews})</span>
         </div>
+        <div className="flex justify-between ">
         <p className="text-sm text-gray-700 mt-2">{place.description}</p>
+       <HiOutlinePencil/>
+       </div>
       </div>
-      <div className="flex flex-col justify-between ml-3 text-gray-500 text-xl">
-        <HiOutlineLocationMarker />
-        <HiOutlineLink />
-      </div>
+      
     </div>
   );
 };
