@@ -6,7 +6,7 @@ const initialPlaces = [
     id: "1",
     title: "India Gate",
     description:
-      "India Gate is a war memorial located in New Delhi, along the Rajpath.",
+      "India Gate is a war memorial located in New Delhi, along the Rajpath.It is dedicated to the 82,000 soldiers,both Indian and British.",
     rating: "4.6",
     reviews: "281,124",
     image: "https://media-cdn.tripadvisor.com/media/photo-s/16/e0/7b/c2/picture-clicked-at-the.jpg",
@@ -14,7 +14,7 @@ const initialPlaces = [
   {
     id: "2",
     title: "Red Fort",
-    description: "The Red Fort is a historical fort in the old Delhi area.",
+    description: "The Red Fort is a historical fort in the old Delhi area,on the bank of Yamuna",
     rating: "4.5",
     reviews: "168,729",
     image: "https://images.saymedia-content.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MjAzNDMwNzE1ODA1NjcyNzk2/fort-agra-easy-peasy.jpg",
@@ -23,7 +23,7 @@ const initialPlaces = [
     id: "3",
     title: "Qutub Minar",
     description:
-      "Qutub Minar is a minaret or a victory tower located in Delhi's Mehrauli area.",
+      "Qutub Minar is a minaret or a victory tower located in the Qutub complex,a UNESCO Worls Heritage Site in Delhi's Mehrauli area.",
     rating: "4.5",
     reviews: "151,556",
     image: "https://www.thedelhitours.com/blog/wp-content/uploads/2024/09/Qutub-Minar-750x564.jpg",
