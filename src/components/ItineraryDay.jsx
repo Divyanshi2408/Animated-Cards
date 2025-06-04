@@ -14,35 +14,48 @@ const Itinerary = ({ places, setPlaces }) => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="itinerary-list">
-        {(provided) => (
-          <div
-            {...provided.droppableProps}
-            ref={provided.innerRef}
-            className="space-y-4"
+  <Droppable
+    droppableId="itinerary-list"
+    renderClone={(provided, snapshot, rubric) => (
+      <div
+        ref={provided.innerRef}
+        {...provided.draggableProps}
+        {...provided.dragHandleProps}
+        className="shadow-2xl scale-[1.01] z-50"
+      >
+        <ActivityCard place={places[rubric.source.index]} index={rubric.source.index} />
+      </div>
+    )}
+  >
+    {(provided) => (
+      <div
+        {...provided.droppableProps}
+        ref={provided.innerRef}
+        className="space-y-4"
+      >
+        {places.map((place, index) => (
+          <Draggable
+            key={place.id}
+            draggableId={String(place.id)}
+            index={index}
           >
-            {places.map((place, index) => (
-              <Draggable
-                key={place.id}
-                draggableId={String(place.id)} 
-                index={index}
+            {(provided) => (
+              <div
+                ref={provided.innerRef}
+                {...provided.draggableProps}
+                {...provided.dragHandleProps}
               >
-                {(provided) => (
-                  <div
-                    ref={provided.innerRef}
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                  >
-                    <ActivityCard place={place} index={index} />
-                  </div>
-                )}
-              </Draggable>
-            ))}
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
-    </DragDropContext>
+                <ActivityCard place={place} index={index} />
+              </div>
+            )}
+          </Draggable>
+        ))}
+        {provided.placeholder}
+      </div>
+    )}
+  </Droppable>
+</DragDropContext>
+
   );
 };
 
