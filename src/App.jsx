@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Itinerary from "./components/ItineraryDay";
+import { HiOutlineMenu } from "react-icons/hi";
 
 const initialPlaces = [
   {
@@ -28,7 +29,7 @@ const initialPlaces = [
     reviews: "151,556",
     image: "https://www.thedelhitours.com/blog/wp-content/uploads/2024/09/Qutub-Minar-750x564.jpg",
   },
-   {
+  {
     id: "4",
     title: "Lotus Temple",
     description:
@@ -37,7 +38,7 @@ const initialPlaces = [
     reviews: "151,556",
     image: "https://upload.wikimedia.org/wikipedia/commons/f/fc/LotusDelhi.jpg",
   },
-   {
+  {
     id: "5",
     title: "Humayun's Tomb",
     description:
@@ -52,18 +53,31 @@ function App() {
   const [places, setPlaces] = useState(initialPlaces);
 
   return (
-    <div className="flex h-screen">
-      <div className="w-full md:w-1/2 p-6 overflow-y-auto">
-        <h1 className="text-3xl font-bold mb-4">Itinerary</h1>
-        <Itinerary places={places} setPlaces={setPlaces} />
+    <div className="h-screen w-screen">
+      {/* Header only visible on small screens */}
+      <div className="md:hidden flex justify-between items-center px-6 py-4 border-b border-gray-200">
+        <h1 className="text-3xl font-bold text-pink-500">Y2Z Travel</h1>
+        <HiOutlineMenu className="text-2xl" />
       </div>
-      <div className="hidden md:block w-1/2">
-        <iframe
-          className="w-full h-full"
-          src="https://www.google.com/maps/embed"
-          loading="lazy"
-          title="Map"
-        ></iframe>
+
+      {/* Main layout */}
+      <div className="flex h-full">
+        <div className="w-full md:w-1/2 p-6 overflow-y-auto">
+          {/* Title only visible on md+ */}
+          <h1 className="hidden md:block text-3xl font-bold mb-4 text-pink-500">Y2Z Travel</h1>
+          <h1 className="text-2xl font-bold px-10">Itinerary</h1>
+          <h4 className="px-10 mb-5">Day</h4>
+          <Itinerary places={places} setPlaces={setPlaces} />
+        </div>
+
+        <div className="hidden md:block w-1/2">
+          <iframe
+            className="w-full h-full"
+            src="https://www.google.com/maps/embed"
+            loading="lazy"
+            title="Map"
+          ></iframe>
+        </div>
       </div>
     </div>
   );
